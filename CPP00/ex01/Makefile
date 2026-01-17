@@ -1,5 +1,5 @@
-NAME = zombie
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+NAME = PhoneBook
+SRC = main.cpp Contact.cpp PhoneBook.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
