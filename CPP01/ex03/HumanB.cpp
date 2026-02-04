@@ -12,7 +12,7 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : name(name) {}
+HumanB::HumanB(std::string name) : weapon(NULL), name(name) {}
 
 HumanB::~HumanB() {
     std::cout << "HumanB " << this->name << " is being destroyed." << std::endl;
@@ -21,9 +21,9 @@ HumanB::~HumanB() {
 void HumanB::attack()
 {
     if (this->weapon)
-        std::cout << this->name << " attacks with their weapon " << this->weapon->getType() << std::endl;
+        std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
     else
-        std::cout << this->name << " doesnt have any weapon to attack " << std::endl;
+        std::cout << this->name << " doesnt have any weapon to attack!! " << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &weapon)
