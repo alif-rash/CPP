@@ -12,15 +12,17 @@
 
 #include "Harl.hpp"
 
-int main()
+int main(int ac, char **av)
 {
+    std::string level;
     Harl harl;
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    harl.complain("UNKNOWN");
-
-    return 0;
+    if (ac != 2)
+    {
+        std::cout << "Usage: ./Harl <level>\n";
+        return 1;
+    }
+    level = av[1];
+    harl.complain(level);
+    return (0);
 }
