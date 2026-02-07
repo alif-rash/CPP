@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HumanB_HPP
-#define HumanB_HPP
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include "Weapon.hpp"
 
@@ -26,7 +26,5 @@ class HumanB
 		void attack();
 		void setWeapon(Weapon &weapon);
 };
-
-
 
 #endif
