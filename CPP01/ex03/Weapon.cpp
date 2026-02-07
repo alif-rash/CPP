@@ -12,25 +12,27 @@
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() {
-    std::cout << "Default Weapon created." << std::endl;
+Weapon::Weapon()
+{
+	std::cout << "Default Weapon created." << std::endl;
 }
 
 Weapon::Weapon(std::string type)
-{   
-    setType(type);
+{
+	setType(type);
 }
 
-Weapon::~Weapon() {
-    std::cout << "Weapon of type " << this->type << " is being destroyed." << std::endl;
+Weapon::~Weapon()
+{
+	std::cout << "Weapon of type " << this->type << " is being destroyed." << std::endl;
 }
 
 std::string Weapon::getType() const
 {
-    return this->type;
+	return this->type;
 }
 
 void Weapon::setType(std::string newType)
 {
-    this->type = newType;
+	this->type = newType;
 }

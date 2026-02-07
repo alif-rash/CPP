@@ -15,19 +15,19 @@
 HumanB::HumanB(std::string name) : weapon(NULL), name(name) {}
 
 HumanB::~HumanB() {
-    std::cout << "HumanB " << this->name << " is being destroyed." << std::endl;
+	std::cout << "HumanB " << this->name << " is being destroyed." << std::endl;
 }
 
 void HumanB::attack()
 {
-    if (this->weapon)
-        std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
-    else
-        std::cout << this->name << " doesnt have any weapon to attack!! " << std::endl;
+	if (this->weapon)
+		std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	else
+		std::cout << this->name << " doesnt have any weapon to attack!! " << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &weapon)
 {
-    this->weapon = &weapon;
+	this->weapon = &weapon;
 }
 
