@@ -61,6 +61,7 @@ int main(int ac, char **av)
     if (inFile.fail())
     {
         std::cerr << "Error: Couldn't open file " << oldFile << std::endl;
+        inFile.close();
         return 1;
     }
     outFile.open(newFile.c_str());
@@ -68,6 +69,7 @@ int main(int ac, char **av)
     {
         std::cerr<<"Error: couldn't create file " << newFile << std::endl;
         inFile.close();
+        outFile.close();
         return 1;
     }
     ft_read_and_replace(inFile, outFile, av[2], av[3]);

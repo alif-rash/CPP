@@ -2,17 +2,16 @@
 
 int main()
 {
-    std::string name = "HI THIS IS BRAIN";
-    std::string *namePTR = &name;
-    std::string &nameREF = name;
+    std::string val = "HI THIS IS BRAIN";
+    std::string *valPTR = &val;
+    std::string &valREF = val;
 
-    std::cout << "The address of the string:\t " << &name << std::endl;
-    std::cout << "The address of the stringPTR:\t " << &namePTR << std::endl;
-    std::cout << "The address of the stringREF:\t " << &nameREF << std::endl << std::endl;
-
-    std::cout << "The string:\t " << name << std::endl;
-    std::cout << "The stringPTR:\t " << namePTR << std::endl;
-    std::cout << "The stringREF:\t " << nameREF << std::endl;
+    std::cout << "The memory address of the string:\t " << &val << std::endl;
+    std::cout << "The memory address of the stringPTR:\t " << valPTR << std::endl;
+    std::cout << "The memory address of the stringREF:\t " << &valREF << std::endl << std::endl;
+    std::cout << "The value of the string:\t " << val << std::endl;
+    std::cout << "The value pointed to by stringPTR:\t " << *valPTR << std::endl;
+    std::cout << "The value referred to by stringREF:\t " << valREF << std::endl;
 
 
 }
