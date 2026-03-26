@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/25 17:01:08 by raalifa           #+#    #+#             */
+/*   Updated: 2026/03/25 17:01:08 by raalifa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
+
+#include <iostream>
+#include <string>
+
+class ClapTrap
+{
+	private:
+		std::string name;
+		unsigned int 		hitPoints;
+		unsigned int 		energyPoints;
+		unsigned int 		attackDamage;
+
+	public:
+		ClapTrap();
+		ClapTrap(const std::string& name);
+		ClapTrap(const ClapTrap& copy);
+		ClapTrap& operator=(const ClapTrap& src);
+		~ClapTrap();
+
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+
+};
+ 
+
+#endif
