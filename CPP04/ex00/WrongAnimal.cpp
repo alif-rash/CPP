@@ -14,18 +14,18 @@
 
 WrongAnimal::WrongAnimal() : type("WrongAnimal")
 {
-	std::cout << "WrongAnimal default constructor called\n";
+	std::cout << "[WrongAnimal] default constructor (type=" << type << ")" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const std::string& type) : type(type)
 {
-	std::cout << "WrongAnimal of type " << type << " constructor called\n";
+	std::cout << "[WrongAnimal] type constructor (type=" << this->type << ")" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& copy)
 {
 	*this = copy;
-	std::cout << "WrongAnimal copy constructor called\n";
+	std::cout << "[WrongAnimal] copy constructor (type=" << type << ")" << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal& src)
@@ -38,12 +38,12 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal& src)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal of type " << type << " destructor called\n";
+	std::cout << "[WrongAnimal] destructor (type=" << type << ")" << std::endl;
 }
 
 void WrongAnimal ::makeSound() const
 {
-	std::cout << "WrongAnimal of type " << type << " makes a sound! (general)\n";
+	std::cout << "[WrongAnimal] " << type << " sound: <generic wrong-animal sound>" << std::endl;
 }
 
 void WrongAnimal::setType(const std::string& type)

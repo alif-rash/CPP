@@ -27,8 +27,8 @@ int main()
     {
         std::cout << "--- SCAVTRAP TEST ---" << std::endl;
         ScavTrap scav("Guardian");
-        scav.attack("Enemy");     // 20 Damage [cite: 166]
-        scav.guardGate();         // Special [cite: 168]
+        scav.attack("Enemy");  
+        scav.guardGate(); 
         scav.takeDamage(50);
     }
     std::cout << std::endl;
