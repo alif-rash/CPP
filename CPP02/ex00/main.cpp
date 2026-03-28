@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 01:47:00 by raalifa           #+#    #+#             */
-/*   Updated: 2026/03/08 01:47:00 by raalifa          ###   ########.fr       */
+/*   Created: 2026/03/27 10:52:47 by raalifa           #+#    #+#             */
+/*   Updated: 2026/03/28 09:55:39 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
 
 int main( void ) {
     Fixed a;

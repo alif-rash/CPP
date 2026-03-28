@@ -5,38 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 00:03:42 by raalifa           #+#    #+#             */
-/*   Updated: 2026/03/09 00:03:42 by raalifa          ###   ########.fr       */
+/*   Created: 2026/03/08 02:00:20 by raalifa           #+#    #+#             */
+/*   Updated: 2026/03/28 09:54:20 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cmath>
-#include <iostream>
-
 #ifndef FIXED_HPP
-#define FIXED_HPP
+# define FIXED_HPP
 
-class Fixed {
-    private:
-        int                 _fixedPointValue;
-        static const int    _fractionalBits = 8;
+#include <iostream>
+#include <cmath>
 
-    public:
-        Fixed();
-        Fixed(int const intValue);
-        Fixed(float const floatValue);
-        Fixed(const Fixed& other);
-        ~Fixed();
+class Fixed
+{
+	private:
+		int 				value;
+		static const int 	fractional_bit = 8;
+	public:
+		Fixed();
+		Fixed(const int i_value);
+		Fixed (const float f_value);
+		Fixed(const Fixed& copy);
+		Fixed& operator=(const Fixed& src);
+		~Fixed();
 
-        Fixed& operator=(const Fixed& other);
 
-        float toFloat(void) const;
-        int toInt(void) const;
-        
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
-        
-    };
-    std::ostream &operator<<(std::ostream &os, const Fixed& other);
+		int 	toInt(void) const;
+		float 	toFloat(void) const;
+
+		int 	getRawBits(void) const;
+		void 	setRawBits(int const raw);
+
+};
+
+std::ostream &operator<<(std::ostream &os, const Fixed& F);
 
 #endif

@@ -5,29 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 01:59:19 by raalifa           #+#    #+#             */
-/*   Updated: 2026/03/08 01:59:19 by raalifa          ###   ########.fr       */
+/*   Created: 2026/03/27 10:52:47 by raalifa           #+#    #+#             */
+/*   Updated: 2026/03/28 09:55:27 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+class Fixed
+{
+	private:
+		int 				value;
+		static const int 	fractional_bit = 8;
+	public:
+		Fixed();
+		Fixed(const Fixed& copy);
+		Fixed& operator=(const Fixed& src);
+		~Fixed();
 
-class Fixed {
-    private:
-        int                 _fixedPointValue;
-        static const int    _fractionalBits;
+		int		getRawBits(void) const;
+		void 	setRawBits(int const raw);
 
-    public:
-        Fixed();
-        Fixed(const Fixed& other);
-        ~Fixed();
-        Fixed& operator=(const Fixed& other);
-
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
 };
 
 #endif
