@@ -19,10 +19,10 @@ Fixed::Fixed(const Fixed& copy)
 	*this = copy;
 }
 
-Fixed& Fixed::operator=(const Fixed& src)
+Fixed& Fixed::operator=(const Fixed& rhs)
 {
-	if(this != &src)
-		this->value = src.getRawBits();
+	if(this != &rhs)
+		this->value = rhs.getRawBits();
 	return (*this);
 }
 

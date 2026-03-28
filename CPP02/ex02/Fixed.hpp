@@ -24,7 +24,7 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed& copy);
-		Fixed& operator=(const Fixed& src);
+		Fixed& operator=(const Fixed& rhs);
 		~Fixed();
 
 		Fixed(const int i_value);

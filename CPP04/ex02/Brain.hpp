@@ -23,7 +23,7 @@ class Brain
 	public:
 		Brain();
 		Brain(const Brain& copy);
-		Brain &operator=(const Brain& src);
+		Brain &operator=(const Brain& rhs);
 		~Brain();
 
 		std::string const &getIdea(int const &index);

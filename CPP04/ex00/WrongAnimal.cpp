@@ -28,11 +28,11 @@ WrongAnimal::WrongAnimal(const WrongAnimal& copy)
 	std::cout << "[WrongAnimal] copy constructor (type=" << type << ")" << std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal& src)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal& rhs)
 {
-	if (this == &src)
+	if (this == &rhs)
 		return (*this);
-	this->type = src.type;
+	this->type = rhs.type;
 	return (*this);
 }
 

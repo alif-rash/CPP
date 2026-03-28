@@ -23,7 +23,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap();
 		ScavTrap(const std::string& name);
 		ScavTrap(const ScavTrap& copy);
-		ScavTrap& operator=(const ScavTrap& src);
+		ScavTrap& operator=(const ScavTrap& rhs);
 		~ScavTrap();
 
 		void attack(const std::string& target);

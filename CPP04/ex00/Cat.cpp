@@ -27,11 +27,11 @@ Cat::Cat(const Cat& copy) : Animal(copy)
 	std::cout << "[Cat] copy constructor" << std::endl;
 }
 
-Cat& Cat::operator=(const Cat& src)
+Cat& Cat::operator=(const Cat& rhs)
 {
-	if (this == &src)
+	if (this == &rhs)
 		return (*this);
-	this->type = src.type;
+	this->type = rhs.type;
 	return (*this);
 }
 

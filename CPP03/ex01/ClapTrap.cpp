@@ -28,15 +28,15 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	*this = copy;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &src)
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {
 	std::cout << "ClapTrap copy assignment operator called.\n";
-	if (this == &src)
+	if (this == &rhs)
 		return *this;
-	this->name = src.name;
-	this->hitPoints = src.hitPoints;
-	this->energyPoints = src.energyPoints;
-	this->attackDamage = src.attackDamage;
+	this->name = rhs.name;
+	this->hitPoints = rhs.hitPoints;
+	this->energyPoints = rhs.energyPoints;
+	this->attackDamage = rhs.attackDamage;
 	return *this;
 }
 

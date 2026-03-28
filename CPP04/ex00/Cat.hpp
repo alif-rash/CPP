@@ -21,7 +21,7 @@ class Cat : public Animal
 		Cat();
 		Cat(const std::string& type);
 		Cat(const Cat& copy);
-		Cat& operator=(const Cat& src);
+		Cat& operator=(const Cat& rhs);
 		virtual ~Cat();
 
 		virtual void makeSound() const;

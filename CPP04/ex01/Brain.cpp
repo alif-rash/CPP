@@ -23,13 +23,13 @@ Brain::Brain(const Brain& copy)
 	*this = copy;
 }
 
-Brain &Brain::operator=(const Brain& src)
+Brain &Brain::operator=(const Brain& rhs)
 {
 	std::cout << "[Brain] copy assignment operator" << std::endl;
-	if (this != &src)
+	if (this != &rhs)
 	{
 		for (int i = 0; i < 100; i++)
-			this->ideas[i] = src.ideas[i];
+			this->ideas[i] = rhs.ideas[i];
 	}
 	return (*this);
 }

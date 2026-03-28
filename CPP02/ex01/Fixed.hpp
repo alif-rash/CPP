@@ -26,7 +26,7 @@ class Fixed
 		Fixed(const int i_value);
 		Fixed (const float f_value);
 		Fixed(const Fixed& copy);
-		Fixed& operator=(const Fixed& src);
+		Fixed& operator=(const Fixed& rhs);
 		~Fixed();
 
 

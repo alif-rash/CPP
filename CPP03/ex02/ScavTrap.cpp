@@ -35,12 +35,12 @@ ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 	std::cout << "ScavTrap copy constructor called.\n";
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& src)
+ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
 {
 	std::cout << "ScavTrap copy assignment operator called.\n";
-	if (this == &src)
+	if (this == &rhs)
 		return (*this);
-	ClapTrap::operator=(src);
+	ClapTrap::operator=(rhs);
 	return (*this);
 }
 

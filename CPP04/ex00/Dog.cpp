@@ -27,11 +27,11 @@ Dog::Dog(const Dog& copy) : Animal(copy)
 	std::cout << "[Dog] copy constructor" << std::endl;
 }
 
-Dog& Dog::operator=(const Dog& src)
+Dog& Dog::operator=(const Dog& rhs)
 {
-	if (this == &src)
+	if (this == &rhs)
 		return (*this);
-	this->type = src.type;
+	this->type = rhs.type;
 	return (*this);
 }
 

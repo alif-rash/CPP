@@ -25,16 +25,16 @@ Cat::Cat(const Cat& copy) : Animal(copy), brain(NULL)
 	std::cout << "[Cat] copy constructor" << std::endl;
 }
 
-Cat& Cat::operator=(const Cat& src)
+Cat& Cat::operator=(const Cat& rhs)
 {
-	if (this != &src)
+	if (this != &rhs)
 	{
 		Brain* newBrain = NULL;
-		if (src.brain)
-			newBrain = new Brain(*src.brain);
+		if (rhs.brain)
+			newBrain = new Brain(*rhs.brain);
 		delete this->brain;
 		this->brain = newBrain;
-		this->type = src.type;
+		this->type = rhs.type;
 	}
 	std::cout << "[Cat] copy assignment operator" << std::endl;
 	return (*this);

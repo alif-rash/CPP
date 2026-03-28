@@ -28,7 +28,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(const std::string& name);
 		ClapTrap(const ClapTrap& copy);
-		ClapTrap& operator=(const ClapTrap& src);
+		ClapTrap& operator=(const ClapTrap& rhs);
 		~ClapTrap();
 
 		void attack(const std::string& target);

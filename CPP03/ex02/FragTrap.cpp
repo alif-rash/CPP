@@ -33,12 +33,12 @@ FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy)
 	std::cout << "FragTrap copy constructor called.\n";
 }
 
-FragTrap& FragTrap::operator=(const FragTrap& src)
+FragTrap& FragTrap::operator=(const FragTrap& rhs)
 {
 	std::cout << "FragTrap copy assignment operator called.\n";
-	if (this == &src)
+	if (this == &rhs)
 		return (*this);
-	ClapTrap::operator=(src);
+	ClapTrap::operator=(rhs);
 	return (*this);
 }
 

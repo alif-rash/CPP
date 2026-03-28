@@ -26,16 +26,16 @@ Dog::Dog(const Dog& copy) : Animal(copy), brain(NULL)
 	std::cout << "[Dog] copy constructor" << std::endl;
 }
 
-Dog& Dog::operator=(const Dog& src)
+Dog& Dog::operator=(const Dog& rhs)
 {
-	if (this != &src)
+	if (this != &rhs)
 	{
 		Brain* newBrain = NULL;
-		if (src.brain)
-			newBrain = new Brain(*src.brain);
+		if (rhs.brain)
+			newBrain = new Brain(*rhs.brain);
 		delete this->brain;
 		this->brain = newBrain;
-		this->type = src.type;
+		this->type = rhs.type;
 	}
 	std::cout << "[Dog] copy assignment operator" << std::endl;
 	return (*this);
