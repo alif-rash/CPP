@@ -14,15 +14,28 @@
 
 int main()
 {
-	ClapTrap clap1("Clappy");
-	ClapTrap clap2(clap1);
-	ClapTrap clap3;
+	ClapTrap alpha("Alpha");
+	ClapTrap beta(alpha);
+	ClapTrap gamma;
 
-	clap3 = clap1;
+	gamma = alpha;
 
-	clap1.attack("Target1");
-	clap2.takeDamage(5);
-	clap3.beRepaired(3);
+	std::cout << "\n=== Basic Actions ===" << std::endl;
+	alpha.attack("Target-1");
+	beta.takeDamage(5);
+	gamma.beRepaired(3);
+
+	std::cout << "\n=== Energy Drain ===" << std::endl;
+	for (int i = 0; i < 11; i++)
+		alpha.attack("Dummy");
+
+	std::cout << "\n=== Destroyed State ===" << std::endl;
+	beta.takeDamage(100);
+	beta.beRepaired(2);
+	beta.attack("Target-2");
+
+	std::cout << std::endl;
+
 
 	return 0;
 }

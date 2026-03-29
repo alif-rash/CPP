@@ -14,7 +14,7 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << "FragTrap default constructor called\n";
+	std::cout << "[FragTrap] default constructor called." << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->attackDamage = 30;
@@ -22,7 +22,7 @@ FragTrap::FragTrap() : ClapTrap()
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "FragTrap " << name << " constructor called\n";
+	std::cout << "[FragTrap] " << name << " constructor called." << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->attackDamage = 30;
@@ -30,12 +30,12 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy)
 {
-	std::cout << "FragTrap copy constructor called.\n";
+	std::cout << "[FragTrap] copy constructor called." << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& rhs)
 {
-	std::cout << "FragTrap copy assignment operator called.\n";
+	std::cout << "[FragTrap] copy assignment operator called." << std::endl;
 	if (this == &rhs)
 		return (*this);
 	ClapTrap::operator=(rhs);
@@ -44,10 +44,23 @@ FragTrap& FragTrap::operator=(const FragTrap& rhs)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " << name << " destructor called.\n";
+	std::cout << "[FragTrap] " << name << " destructor called." << std::endl;
+}
+
+void FragTrap::attack(const std::string& target)
+{
+	if (hitPoints == 0)
+		std::cout << "[FragTrap] " << name << " cannot attack (no hit points left)." << std::endl;
+	else if (energyPoints > 0)
+	{
+		energyPoints--;
+		std::cout << "[FragTrap] " << name << " attacks " << target << ", causing " << attackDamage << " points of damage. Energy left: " << energyPoints << std::endl;
+	}
+	else
+		std::cout << "[FragTrap] " << name << " cannot attack (insufficient energy points)." << std::endl;
 }
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << name << " requests a high five! 🙌\n";
+	std::cout << "[FragTrap] " << name << " requests a high five!" << std::endl;
 }

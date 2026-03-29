@@ -35,19 +35,11 @@ int main()
 
     {
         std::cout << "--- FRAGTRAP TEST ---" << std::endl;
-        FragTrap frag("Party");
-        frag.attack("Dummy");     // 30 Damage [cite: 188]
-        frag.highFivesGuys();     // Special [cite: 190]
+        FragTrap frag("someone");
+        frag.attack("whoever"); 
+        frag.highFivesGuys();
         frag.beRepaired(20);
     }
     std::cout << std::endl;
-
-    {
-        std::cout << "--- DEEP COPY TEST ---" << std::endl;
-        FragTrap original("Original");
-        FragTrap copy(original);
-        copy = original;
-    }
-
     return 0;
 }

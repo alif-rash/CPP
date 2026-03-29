@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;
+	std::cout << "[ScavTrap] default constructor called." << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap " << name << " constructor called\n";
+	std::cout << "[ScavTrap] " << name << " constructor called." << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
@@ -32,43 +32,45 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 {
-	std::cout << "ScavTrap copy constructor called.\n";
+	std::cout << "[ScavTrap] copy constructor called." << std::endl;
+	this->isguard = copy.isguard;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
 {
-	std::cout << "ScavTrap copy assignment operator called.\n";
+	std::cout << "[ScavTrap] copy assignment operator called." << std::endl;
 	if (this == &rhs)
 		return (*this);
 	ClapTrap::operator=(rhs);
+	this->isguard = rhs.isguard;
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << name << " destructor called.\n";
+	std::cout << "[ScavTrap] " << name << " destructor called." << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
 	if (hitPoints == 0)
-		std::cout << "ScavTrap " << name << " cannot attack. It has no hit points left.\n";
+		std::cout << "[ScavTrap] " << name << " cannot attack (no hit points left)." << std::endl;
 	else if (energyPoints > 0)
 	{
 		energyPoints--;
-		std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage! (Energy left: " << energyPoints << ")\n";
+		std::cout << "[ScavTrap] " << name << " attacks " << target << ", causing " << attackDamage << " points of damage. Energy left: " << energyPoints << std::endl;
 	}
 	else
-		std::cout << "ScavTrap " << name << " cannot attack. Not enough energy points.\n";
+		std::cout << "[ScavTrap] " << name << " cannot attack (insufficient energy points)." << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
 	if (isguard)
-		std::cout << "ScavTrap " << name << " is already in Gate keeper mode.\n";
+		std::cout << "[ScavTrap] " << name << " is already in Gate keeper mode." << std::endl;
 	else
 	{
 		isguard = true;
-		std::cout << "ScavTrap " << name << " has entered Gate keeper mode.\n";
+		std::cout << "[ScavTrap] " << name << " has entered Gate keeper mode." << std::endl;
 	}
 }
