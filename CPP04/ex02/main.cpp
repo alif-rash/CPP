@@ -16,61 +16,21 @@
 
 int main(void)
 {
-	{
-		const int count = 10;
-		const Animal *meta[count];
+	const Animal *animals[4];
 
-		for (int i = 0; i < count; i++)
-		{
-			if (i < count / 2)
-				meta[i] = new Dog();
-			else
-				meta[i] = new Cat();
-		}
-		std::cout << "-------------------------------------\n";
-		for (int i = 0; i < count; i++)
-			meta[i]->makeSound();
-		std::cout << "-------------------------------------\n";
-		for (int i = 0; i < count; i++)
-			delete meta[i];
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Dog class using copy constructor:\n" << std::endl;
-		Dog *dog1 = new Dog;
-		Dog *dog2 = new Dog(*dog1);
+	animals[0] = new Dog();
+	animals[1] = new Dog();
+	animals[2] = new Cat();
+	animals[3] = new Cat();
 
-		delete dog1;
-		delete dog2;
-	}
-	std::cout << "-------------------------------------\n";
+	for (int i = 0; i < 4; i++)
 	{
-		std::cout << "Check deep copy of Dog class using assignment operator overload:\n" << std::endl;
-		Dog *dog1 = new Dog;
-		Dog *dog2 = new Dog;
-
-		*dog1 = *dog2;
-		delete dog1;
-		delete dog2;
+		std::cout << animals[i]->getType() << " says: ";
+		animals[i]->makeSound();
 	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using copy constructor:\n" << std::endl;
-		Cat *cat1 = new Cat;
-		Cat *cat2 = new Cat(*cat1);
 
-		delete cat1;
-		delete cat2;
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using assignment operator overload:\n" << std::endl;
-		Cat *cat1 = new Cat;
-		Cat *cat2 = new Cat;
+	for (int i = 0; i < 4; i++)
+		delete animals[i];
 
-		*cat1 = *cat2;
-		delete cat1;
-		delete cat2;
-	}
 	return (0);
 }
