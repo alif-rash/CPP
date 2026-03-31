@@ -21,7 +21,7 @@ int main()
 
 	for (int i = 0; i < count; i++)
 	{
-		if (i % 2 == 0)
+		if (count / 2 > i)
 			meta[i] = new Dog();
 		else
 			meta[i] = new Cat();

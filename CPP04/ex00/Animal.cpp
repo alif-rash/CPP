@@ -43,7 +43,7 @@ Animal::~Animal()
 
 void Animal ::makeSound() const
 {
-	std::cout << "[Animal] " << type << " sound: <generic animal sound>" << std::endl;
+	std::cout << "[Animal] " << type << " sound: <unidentified sound>" << std::endl;
 }
 
 void Animal::setType(const std::string& type)

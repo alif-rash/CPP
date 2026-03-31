@@ -18,35 +18,26 @@
 
 int main()
 {
-	std::cout << "--- ANIMAL TEST ---" << std::endl;
-	{
-		Animal* animal = new Animal();
-		animal->makeSound();
-		delete animal;
-	}
-	std::cout << std::endl;
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrong = new WrongCat();
 
-	{
-		std::cout << "--- DOG TEST ---" << std::endl;
-		Animal* dog = new Dog();
-		dog->makeSound();
-		delete dog;
-	}
-	std::cout << std::endl;
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
 
-	{
-		std::cout << "--- CAT TEST ---" << std::endl;
-		Animal* cat = new Cat();
-		cat->makeSound();
-		delete cat;
-	}
-	std::cout << std::endl;
+	std::cout << wrong->getType() << " " << std::endl;
+	wrong->makeSound();
+	wrongMeta->makeSound();
 
-	{
-		std::cout << "--- WRONG ANIMAL TEST ---" << std::endl;
-		WrongAnimal* wrongCat = new WrongCat();
-		wrongCat->makeSound();
-		delete wrongCat;
-	}
+	delete meta;
+	delete j;
+	delete i;
+	delete wrongMeta;
+	delete wrong;
 	return 0;
 }
