@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 23:00:33 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/10 23:00:33 by marvin           ###   ########.fr       */
+/*   Created: 2026/06/24 13:20:14 by raalifa           #+#    #+#             */
+/*   Updated: 2026/07/06 13:10:19 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw(){
     return ("grade too low!!");
 }
 
-std::ostream& operator<<(std::ostream& out, Bureaucrat& b)
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
 {
     out << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
     return out;
