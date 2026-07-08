@@ -6,44 +6,34 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:20:14 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/08 11:12:46 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/07/08 10:00:16 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): name("default"), grade(150)
-{
-    std::cout << "Bureaucrat default constructor called" << std::endl;
-}
+Bureaucrat::Bureaucrat(): name("default"), grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name){
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
+{
     if (grade < 1)
         throw GradeTooHighException();
-    else if (grade > 150)
+    if (grade > 150)
         throw GradeTooLowException();
     else
         this->grade = grade;
-    std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.name), grade(copy.grade)
-{
-    std::cout << "Bureaucrat copy constructor called" << std::endl;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.name), grade(copy.grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 {
-    std::cout << "Bureaucrat copy assignment operator called" << std::endl;
     if (this != &copy)
         this->grade = copy.grade;
     return *this;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-    std::cout << "Bureaucrat destructor called" << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 void Bureaucrat::incrementGrade()
 {
@@ -74,6 +64,20 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
     return ("grade too low!!");
+}
+
+void Bureaucrat::signForm(Form& f) const
+{
+    try
+    {
+        f.beSigned(*this);
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
+        return; 
+    }
+    std::cout << this->getName() << " signed " << f.getName() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
