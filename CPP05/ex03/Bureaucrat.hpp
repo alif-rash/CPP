@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 22:31:01 by marvin            #+#    #+#             */
-/*   Updated: 2026/07/09 13:19:04 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/07/09 12:16:51 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Bureaucrat
         Bureaucrat& operator=(const Bureaucrat& copy);
         ~Bureaucrat();
 
-        void executeForm(AForm const &f) const;
+        void executeForm(AForm& f) const;
         
         void incrementGrade();
         void decrementGrade();

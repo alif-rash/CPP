@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 23:08:36 by marvin            #+#    #+#             */
-/*   Updated: 2026/07/09 10:28:24 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/07/09 13:17:18 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,43 @@
 
 int main()
 {
-    Bureaucrat boss("Boss", 1);
-    Bureaucrat worker("Worker", 150);
+    srand(time(NULL));
+    std::cout << "==================================================" << std::endl;
+    {
+        Bureaucrat lowRank("LowRank_Bob", 147);
+        Bureaucrat midRank("MidRank_Jim", 140);
+        Bureaucrat highRank("HighRank_Eva", 130);
+        ShrubberyCreationForm shrub("home");
 
-    ShrubberyCreationForm shrub("home");
-    RobotomyRequestForm robot("Bender");
-    PresidentialPardonForm pardon("Arthur Dent");
+        std::cout << shrub << std::endl;
+        lowRank.signForm(shrub);
+        midRank.signForm(shrub);
+        midRank.executeForm(shrub);
+        highRank.executeForm(shrub);
+    }
 
-    // Try executing before signing
-    boss.executeForm(shrub);
+    std::cout << "\n==================================================" << std::endl;
+    {
+        Bureaucrat assistant("Assistant_Dwight", 60);
+        Bureaucrat manager("Manager_Michael", 40);
+        RobotomyRequestForm robot("Claptrap");
+        std::cout << robot << std::endl;
+        manager.executeForm(robot);
+        assistant.signForm(robot);
+        manager.executeForm(robot);
+        manager.executeForm(robot);
+    }
 
-    // Sign forms
-    boss.signForm(shrub);
-    boss.signForm(robot);
-    boss.signForm(pardon);
+    std::cout << "\n==================================================" << std::endl;
+    {
+        Bureaucrat VP("VicePresident", 10);
+        Bureaucrat President("President_Zaphod", 2);
+        PresidentialPardonForm pardon("Marvin");
 
-    // Execute with enough grade
-    boss.executeForm(shrub);
-    boss.executeForm(robot);
-    boss.executeForm(pardon);
-
-    // Try executing with insufficient grade
-    worker.executeForm(pardon);
+        std::cout << pardon << std::endl;
+        VP.signForm(pardon);
+        President.executeForm(pardon);
+    }
 
     return 0;
 }
