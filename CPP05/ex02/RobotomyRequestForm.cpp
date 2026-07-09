@@ -33,9 +33,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
     checkExecution(executor);
-    std::cout << "Drilling noises...  " << std::endl;
     if (rand() % 2)
-        std::cout << target << " has been robotomized successfully. \n";
+        std::cout << "DRRRRRRRRRRRRRRRRRR " << target << " has been robotomized successfully. \n";
     else
         std::cout << "Robotomy failed on " << target << ". \n";
     

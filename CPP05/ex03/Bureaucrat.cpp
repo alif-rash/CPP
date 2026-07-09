@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:20:14 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/09 12:59:18 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/07/09 18:01:41 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void Bureaucrat::signForm(AForm& f) const
     }
 }
 
-void Bureaucrat::executeForm(AForm& f) const
+void Bureaucrat::executeForm(AForm const &f) const
 {
     try
     {

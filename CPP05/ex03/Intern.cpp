@@ -27,28 +27,35 @@ Intern& Intern::operator=(const Intern & copy)
 
 Intern::~Intern() {}
 
+static AForm* makePresident(const std::string &target)
+{
+    return new PresidentialPardonForm(target);
+}
+
+static AForm* makeRobot(const std::string &target)
+{
+    return new RobotomyRequestForm(target);
+}
+
+static AForm* makeShrubbery(const std::string &target)
+{
+    return new ShrubberyCreationForm(target);
+}
+
 AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 {
-    int i;
+    AForm *(*forms[])(const std::string&) = {&makePresident, &makeRobot, &makeShrubbery};
     std::string formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
-    i = 0;
-    while (i < 3 && formName != formNames[i])
-        i++;
-    switch(i)
+    for (int i = 0; i < 3; i++)
     {
-        case 0:
-            std::cout << "Intern creates " << formName << std::endl; 
-            return (new ShrubberyCreationForm(target));
-        case 1:
-            std::cout << "Intern creates " << formName << std::endl; 
-            return (new RobotomyRequestForm(target));
-        case 2:
-            std::cout << "Intern creates " << formName << std::endl; 
-            return (new PresidentialPardonForm(target));
-        default:
-            std::cout << "Intern cannot create " << formName << std::endl;
-            return (NULL);
+        if (formName == formNames[i])
+        {
+            std::cout << "Intern creates " << formName << std::endl;
+            return forms[i](target);
+        }
     }
-
+    std ::cout << "Intern cannot create " << formName << std::endl;
+    return NULL;
 }
+

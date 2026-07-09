@@ -27,8 +27,6 @@ class Intern
         ~Intern();
 
         AForm* makeForm(const std::string& formName, const std::string& target);
-
-
 };
 
 #endif
