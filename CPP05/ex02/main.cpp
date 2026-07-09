@@ -6,29 +6,40 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 23:08:36 by marvin            #+#    #+#             */
-/*   Updated: 2026/07/08 11:34:02 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:28:24 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-int main() {
-    Bureaucrat highRank("Alice", 10);
-    Bureaucrat lowRank("Bob", 140);
-    Form contract("Standard Contract", 50, 25);
+int main()
+{
+    Bureaucrat boss("Boss", 1);
+    Bureaucrat worker("Worker", 150);
 
-    std::cout << contract << std::endl;
+    ShrubberyCreationForm shrub("home");
+    RobotomyRequestForm robot("Bender");
+    PresidentialPardonForm pardon("Arthur Dent");
 
-    // Failure Case: Bob's grade (140) is too low for the form (50)
-    std::cout << "--- Bob tries to sign ---" << std::endl;
-    lowRank.signForm(contract);
-    std::cout << contract << std::endl;
+    // Try executing before signing
+    boss.executeForm(shrub);
 
-    // Success Case: Alice's grade (10) is high enough for the form (50)
-    std::cout << "--- Alice tries to sign ---" << std::endl;
-    highRank.signForm(contract);
-    std::cout << contract << std::endl;
+    // Sign forms
+    boss.signForm(shrub);
+    boss.signForm(robot);
+    boss.signForm(pardon);
+
+    // Execute with enough grade
+    boss.executeForm(shrub);
+    boss.executeForm(robot);
+    boss.executeForm(pardon);
+
+    // Try executing with insufficient grade
+    worker.executeForm(pardon);
 
     return 0;
 }

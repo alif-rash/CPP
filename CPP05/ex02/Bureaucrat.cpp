@@ -6,12 +6,12 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:20:14 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/08 11:35:39 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:19:29 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(): name("default"), grade(150) {}
 
@@ -67,7 +67,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw(){
     return ("grade too low!!");
 }
 
-void Bureaucrat::signForm(Form& f) const
+void Bureaucrat::signForm(AForm& f) const
 {
     try
     {
@@ -78,6 +78,18 @@ void Bureaucrat::signForm(Form& f) const
         std::cout << this->getName() << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
     }
     std::cout << this->getName() << " signed " << f.getName() << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm& f)
+{
+    try
+    {
+        f.execute(*this);
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << " couldn't execute " << f.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)

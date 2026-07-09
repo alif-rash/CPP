@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 22:31:01 by marvin            #+#    #+#             */
-/*   Updated: 2026/07/08 11:27:52 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:19:51 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <exception>
 #include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -31,13 +31,15 @@ class Bureaucrat
         Bureaucrat& operator=(const Bureaucrat& copy);
         ~Bureaucrat();
 
+        void executeForm(AForm& f);
+        
         void incrementGrade();
         void decrementGrade();
 
         std::string getName() const;
         int         getGrade() const;
         
-        void signForm(Form& f) const;
+        void signForm(AForm& f) const;
 
         class GradeTooHighException : public std::exception {
             public:

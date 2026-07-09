@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 14:01:56 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/06 14:01:56 by raalifa          ###   ########.fr       */
+/*   Created: 2026/07/08 11:54:47 by raalifa           #+#    #+#             */
+/*   Updated: 2026/07/08 11:54:47 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150) {}
+AForm::AForm() : name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150) {}
 
-Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) 
+AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) 
 { 
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
@@ -23,9 +23,9 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExecu
         throw GradeTooLowException();
 }
 
-Form::Form(const Form& copy) : name(copy.name), isSigned(copy.isSigned), gradeToSign(copy.gradeToSign), gradeToExecute(copy.gradeToExecute) {}
+AForm::AForm(const AForm& copy) : name(copy.name), isSigned(copy.isSigned), gradeToSign(copy.gradeToSign), gradeToExecute(copy.gradeToExecute) {}
 
-Form& Form::operator=(const Form& copy)
+AForm& AForm::operator=(const AForm& copy)
 {
     if (this!= &copy)
     {
@@ -34,9 +34,9 @@ Form& Form::operator=(const Form& copy)
     return *this;
 }
 
-Form::~Form() {}
+AForm::~AForm() {}
 
-void Form::beSigned(const Bureaucrat& b)
+void AForm::beSigned(const Bureaucrat& b)
 {
     if (b.getGrade() <= this->gradeToSign)
         this->isSigned = true;
@@ -44,37 +44,50 @@ void Form::beSigned(const Bureaucrat& b)
         throw GradeTooLowException();
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
     return this->name;
 }
 
-bool Form::getIsSigned() const
+bool AForm::getIsSigned() const
 {
     return this->isSigned;
 }
 
-int Form::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
     return this->gradeToSign;
 }
 
-int Form::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
     return this->gradeToExecute;
 }
 
-const char * Form::GradeTooHighException::what() const throw()
+const char * AForm::GradeTooHighException::what() const throw()
 {
     return "Grade is too high!";
 }
 
-const char * Form::GradeTooLowException::what() const throw()
+const char * AForm::GradeTooLowException::what() const throw()
 {
     return "Grade is too low!";
 }
 
-std::ostream& operator<<(std::ostream& out, const Form& f)
+const char * AForm::FormNotSignedException::what() const throw()
+{
+    return "Form is not signed!";
+}
+
+void AForm::checkExecution(Bureaucrat const &executor) const
+{
+    if (!isSigned)
+        throw FormNotSignedException();
+    if (executor.getGrade() > gradeToExecute)
+        throw GradeTooLowException();
+}
+
+std::ostream& operator<<(std::ostream& out, const AForm& f)
 {
     out << "Name: " << f.getName() << ", Signed: " << (f.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << f.getGradeToSign() << ", Grade to Execute: " << f.getGradeToExecute();
     return out;
