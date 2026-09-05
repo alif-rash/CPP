@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:20:14 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/08 11:12:46 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/04 19:43:03 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ Bureaucrat::~Bureaucrat()
 
 void Bureaucrat::incrementGrade()
 {
-    if (grade - 1 < 1)
+    if (grade <= 1)
         throw GradeTooHighException();
     grade--;
 }   
 
 void Bureaucrat::decrementGrade(){
-    if (grade + 1 > 150)
+    if (grade >= 150)
         throw GradeTooLowException();
     grade++;
 }

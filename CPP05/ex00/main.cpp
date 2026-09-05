@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 23:08:36 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/24 19:48:58 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/04 19:43:47 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(){
     {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "------------------------" << std::endl;
     try 
     {
         Bureaucrat b2("Jane", 150);
