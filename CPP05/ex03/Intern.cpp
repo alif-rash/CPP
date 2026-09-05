@@ -45,7 +45,7 @@ static AForm* makeShrubbery(const std::string &target)
 AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 {
     AForm *(*forms[])(const std::string&) = {&makeShrubbery, &makePresident, &makeRobot};
-    std::string formNames[3] = {"Shrubbery Creation", "Robotomy Request", "Presidential Pardon"};
+    std::string formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
     for (int i = 0; i < 3; i++)
     {

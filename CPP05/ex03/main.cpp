@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 23:08:36 by marvin            #+#    #+#             */
-/*   Updated: 2026/09/05 09:41:19 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/05 09:45:12 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int main()
         delete f;
     }
     std::cout << "------------------------------------"<< std::endl;
-    AForm *f1 = intern.makeForm("Shrubbery Creation", "garden");
-    AForm *f2 = intern.makeForm("Robotomy Request", "Bender");
-    AForm *f3 = intern.makeForm("Presidential Pardon", "Arthur Dent");
+    AForm *f1 = intern.makeForm("shrubbery creation", "garden");
+    AForm *f2 = intern.makeForm("robotomy request", "Bender");
+    AForm *f3 = intern.makeForm("presidential pardon", "Arthur Dent");
     AForm *f4 = intern.makeForm("random form", "Nobody");
     std::cout << "------------------------------------"<< std::endl;
 
