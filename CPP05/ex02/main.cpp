@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 23:08:36 by marvin            #+#    #+#             */
-/*   Updated: 2026/09/05 09:22:53 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 12:45:12 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 int main()
 {

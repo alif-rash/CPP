@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 11:54:47 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/08 11:54:47 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 12:34:35 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ void AForm::checkExecution(Bureaucrat const &executor) const
 
 std::ostream& operator<<(std::ostream& out, const AForm& f)
 {
-    out << "Name: " << f.getName() << ", Signed: " << (f.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << f.getGradeToSign() << ", Grade to Execute: " << f.getGradeToExecute();
+    out << "Name: " << f.getName() << ", Signed: " << (f.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << f.getGradeToSign() << ", Grade to Execute: " << f.getGradeToExecute() << ".";
     return out;
 }

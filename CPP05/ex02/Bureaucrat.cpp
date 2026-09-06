@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:20:14 by raalifa           #+#    #+#             */
-/*   Updated: 2026/09/06 12:16:20 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 13:05:46 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 Bureaucrat::Bureaucrat(): name("default"), grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade)
 {
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
         throw GradeTooLowException();
-    else
-        this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.name), grade(copy.grade) {}
@@ -38,13 +36,13 @@ Bureaucrat::~Bureaucrat() {}
 
 void Bureaucrat::incrementGrade()
 {
-    if (grade < 1)
+    if (grade <= 1)
         throw GradeTooHighException();
     grade--;
 }   
 
 void Bureaucrat::decrementGrade(){
-    if (grade > 150)
+    if (grade >= 150)
         throw GradeTooLowException();
     grade++;
 }
@@ -95,6 +93,6 @@ void Bureaucrat::executeForm(AForm const &f) const
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
 {
-    out << b.getName() << ", bureaucrat grade " << b.getGrade();
+    out << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
     return out;
 }

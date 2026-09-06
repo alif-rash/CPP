@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 12:32:53 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/08 12:32:53 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 12:49:32 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
-
 
 class PresidentialPardonForm : public AForm
 {

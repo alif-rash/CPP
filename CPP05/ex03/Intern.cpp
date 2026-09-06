@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 10:45:45 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/09 10:45:45 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 12:48:51 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static AForm* makeShrubbery(const std::string &target)
 AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 {
     AForm *(*forms[])(const std::string&) = {&makeShrubbery, &makePresident, &makeRobot};
-    std::string formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    std::string formNames[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
 
     for (int i = 0; i < 3; i++)
     {

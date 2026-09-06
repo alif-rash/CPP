@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:01:56 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/06 14:01:56 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 12:38:54 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ const char * Form::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& out, const Form& f)
 {
-    out << "Name: " << f.getName() << ", Signed: " << (f.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << f.getGradeToSign() << ", Grade to Execute: " << f.getGradeToExecute();
+    out << "Name: " << f.getName() << ", Signed: " << (f.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << f.getGradeToSign() << ", Grade to Execute: " << f.getGradeToExecute() << ".";
     return out;
 }
