@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 23:08:36 by marvin            #+#    #+#             */
-/*   Updated: 2026/09/05 09:45:12 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 11:55:47 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ int main()
     Intern intern;
     srand(time(NULL));
     
-    AForm *f = intern.makeForm("Robotomy Request", "Bender");
-    if (f)
-    {
-        boss.executeForm(*f);
-        delete f;
-    }
     std::cout << "------------------------------------"<< std::endl;
     AForm *f1 = intern.makeForm("shrubbery creation", "garden");
     AForm *f2 = intern.makeForm("robotomy request", "Bender");

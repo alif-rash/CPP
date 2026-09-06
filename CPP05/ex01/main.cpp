@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 23:08:36 by marvin            #+#    #+#             */
-/*   Updated: 2026/07/08 11:34:02 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/06 11:28:30 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-    Bureaucrat highRank("Alice", 10);
-    Bureaucrat lowRank("Bob", 140);
-    Form contract("Standard Contract", 50, 25);
+    Bureaucrat alice("Alice", 10);
+    Bureaucrat bob("Bob", 100);
+    Form contract("Contract", 50, 25);
 
     std::cout << contract << std::endl;
 
-    // Failure Case: Bob's grade (140) is too low for the form (50)
-    std::cout << "--- Bob tries to sign ---" << std::endl;
-    lowRank.signForm(contract);
+    std::cout << "\n--- Bob tries to sign ---" << std::endl;
+    bob.signForm(contract);
+    std::cout << "\n--- Form after Bob's attempt ---" << std::endl;
     std::cout << contract << std::endl;
 
-    // Success Case: Alice's grade (10) is high enough for the form (50)
-    std::cout << "--- Alice tries to sign ---" << std::endl;
-    highRank.signForm(contract);
+    
+    std::cout << "\n--- Alice tries to sign ---" << std::endl;
+    alice.signForm(contract);
+    std::cout << "\n--- Form after Alice's attempt ---" << std::endl;
     std::cout << contract << std::endl;
 
     return 0;
