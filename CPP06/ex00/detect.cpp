@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 12:50:06 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/22 12:50:06 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/13 13:55:21 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool skipSign(const std::string& input, size_t& i)
 
 bool isChar(const std::string& input)
 {
-    if (input.length() == 1 && !std::isdigit(input[0]))
+    if (input.length() == 1 && !std::isdigit(static_cast<unsigned char>(input[0])))
         return true;
     else if (input.length() == 3 && input[0] == '\'' && input[2] == '\'')
         return true;
@@ -41,7 +41,7 @@ bool isInt(const std::string& input)
         return false;
     while (i < input.length())
     {
-        if (!std::isdigit(input[i]))
+        if (!std::isdigit(static_cast<unsigned char>(input[i])))
             return false;
         i++;
     }
@@ -56,12 +56,12 @@ bool isInt(const std::string& input)
 
 bool isPseudoFloat(const std::string& input)
 {
-    return (input == "nanf" || input == "+inff" || input == "-inff");
+    return (input == "nanf" || input == "inff" || input == "+inff" || input == "-inff");
 }
 
 bool isPseudoDouble(const std::string& input)
 {
-    return (input == "nan" || input == "+inf" || input == "-inf");
+    return (input == "nan" ||  input == "inf" || input == "+inf" || input == "-inf");
 }
 
 bool isFloat(const std::string& input)
@@ -73,7 +73,7 @@ bool isFloat(const std::string& input)
         return false;
     while (i < input.length())
     {
-        if (std::isdigit(input[i]))
+        if (std::isdigit(static_cast<unsigned char>(input[i])))
             digFound = true;
         else if (input[i] == '.' && !dotFound)
             dotFound = true;
@@ -95,7 +95,7 @@ bool isDouble(const std::string& input)
         return false;
     while (i < input.length())
     {
-        if (std::isdigit(input[i]))
+        if (std::isdigit(static_cast<unsigned char>(input[i])))
             digFound = true;
         else if (input[i] == '.' && !dotFound)
             dotFound = true;

@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 15:21:46 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/22 15:21:46 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/13 14:02:44 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define SERIALIZER_HPP
 
 #include "Data.hpp"
-#include <string>
-#include <iostream>
 #include <stdint.h>
 
 class Serializer

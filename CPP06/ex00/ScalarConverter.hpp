@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 09:54:50 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/18 09:54:50 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/13 13:43:38 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <cerrno>
+#include <cctype>
 
 class ScalarConverter
 {

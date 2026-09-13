@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 11:56:54 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/18 11:56:54 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/13 13:55:45 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,16 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 
 ScalarConverter::~ScalarConverter() {}
 
+bool isInf(double value)
+{
+    return (value == std::numeric_limits<double>::infinity() || 
+            value == -std::numeric_limits<double>::infinity());
+}
+
 void printCharResult(double value)
 {
-    if (std::isinf(value) ||
-        std::isnan(value) ||
+    if (isInf(value) ||
+        value != value ||
         value < std::numeric_limits<char>::min() ||
         value > std::numeric_limits<char>::max())
     {
@@ -38,7 +44,7 @@ void printCharResult(double value)
         return;
     }
     char c = static_cast<char>(value);
-    if (std::isprint(c))
+    if (std::isprint(static_cast<unsigned char>(c)))
         std::cout << "char: '" << c << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
@@ -46,10 +52,10 @@ void printCharResult(double value)
 
 void printIntResult(double value)
 {
-    if (std::isinf(value) ||
-        std::isnan(value) ||
-        value < std::numeric_limits<int>::min() ||
-        value > std::numeric_limits<int>::max())
+    if (isInf(value) ||
+        value != value ||
+        value < static_cast<double>(std::numeric_limits<int>::min()) ||
+        value > static_cast<double>(std::numeric_limits<int>::max()))
     {
         std::cout << "int: impossible" << std::endl;
         return;
@@ -59,12 +65,12 @@ void printIntResult(double value)
 
 void printFloatResult(double value)
 {
-    if (std::isnan(value))
+    if (value != value)
     {
         std::cout << "float: nanf" << std::endl;
         return;
     }
-    if (std::isinf(value))
+    if (isInf(value))
     {
         if (value > 0)
             std::cout << "float: +inff" << std::endl;
@@ -84,12 +90,12 @@ void printFloatResult(double value)
 
 void printDoubleResult(double value)
 {
-    if (std::isnan(value))
+    if (value != value)
     {
         std::cout << "double: nan" << std::endl;
         return;
     }
-    if (std::isinf(value))
+    if (isInf(value))
     {
         if (value > 0)
             std::cout << "double: +inf" << std::endl;
@@ -134,7 +140,14 @@ void ScalarConverter::convert(const std::string& input)
             printAllResults(static_cast<double>(std::strtol(input.c_str(), NULL, 10)));
             break;
         case FLOAT:
-            printAllResults(static_cast<double>(std::strtof(input.c_str(), NULL))); 
+            if (input == "nanf" )
+                printAllResults(std::numeric_limits<float>::quiet_NaN());
+            else if (input == "+inff" || input == "inff")
+                printAllResults(std::numeric_limits<float>::infinity());
+            else if (input == "-inff")
+                printAllResults(-std::numeric_limits<float>::infinity());
+            else
+                printAllResults(static_cast<double>(static_cast<float>(std::strtod(input.c_str(), NULL)))); 
             break;
         case DOUBLE:
             printAllResults(std::strtod(input.c_str(), NULL));
