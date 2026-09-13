@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Main.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 15:57:28 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/22 15:57:28 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/13 14:15:03 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,49 +52,50 @@ void identify(Base &p)
 {
     try
     {
-        dynamic_cast<A&>(p);
+        (void)dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
         return;
     }
-    catch(std::exception& e) 
+    catch(std::exception &) {}
+    
+    try
     {
-        try
-        {
-            dynamic_cast<B&>(p);
-            std::cout << "B" << std::endl;
-            return;
-        }
-        catch(std::exception &e)
-        {
-            try
-            {
-                dynamic_cast<C&>(p);
-                std::cout << "C" << std::endl;
-                return;
-            }
-            catch(std::exception &e)
-            {
-                std::cout << "Unknown type" << std::endl;
-                return;
-            }
-        }
+        (void)dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return;
     }
+    catch(std::exception &){}
+    
+    try
+    {
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return;
+    }
+    catch(std::exception &){}
+    std::cout << "Unknown type" << std::endl;
 }
 
 
 int main()
 {
-    std::srand(std::time(NULL));
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
 
-    Base* obj = generate();
 
-    std::cout << "Pointer: ";
-    identify(obj);
+    for (int i = 0; i < 4; i++)
+    {
+        std::cout << "Iteration [" << i + 1 << "] " << std::endl;
+        Base* obj = generate();
 
-    std::cout << "Reference: ";
-    identify(*obj);
+        std::cout << "Pointer: ";
+        identify(obj);
 
-    delete obj;
+        std::cout << "Reference: ";
+        identify(*obj);
+
+        delete obj;
+        std::cout << std::endl;
+    }   
 
     return 0;
 }

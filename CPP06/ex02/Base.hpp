@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 15:56:07 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/22 15:56:07 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/13 14:09:34 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class Base
 {
     public:
-        virtual ~Base() {}
+        virtual ~Base();
 };
 
 #endif
