@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 18:31:58 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/22 18:31:58 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/30 18:07:43 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Array
 {
     private:
         T           *arr;
-        unsigned int size;
+        unsigned int _size;
     public:
         Array();
         Array(unsigned int n);
@@ -31,7 +31,7 @@ class Array
 
         T& operator[](unsigned int i);
         const T& operator[](unsigned int i) const;
-        unsigned int getSize() const;
+        unsigned int size() const;
 
        class OutOfBoundsException : public std::exception{
         public:

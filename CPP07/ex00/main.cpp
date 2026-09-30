@@ -6,11 +6,11 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 16:48:41 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/22 16:48:41 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/09/30 17:44:27 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Whatever.hpp"
+#include "whatever.hpp"
 int main( void ) {
     int a = 2;
     int b = 3;
