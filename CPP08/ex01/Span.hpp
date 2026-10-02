@@ -6,35 +6,35 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 21:25:29 by raalifa           #+#    #+#             */
-/*   Updated: 2026/10/02 13:27:14 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/10/02 15:48:02 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef span_HPP
-#define span_HPP
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 #include <vector>
 #include <algorithm>
 #include <exception>
 #include <iterator>
 
-class span
+class Span
 {
     private:
         unsigned int max_size;
         std::vector<int> numbers;
     public:
-        span();
-        span(unsigned int n);
-        span(const span &other);
-        span &operator=(const span &other);
-        ~span();
+        Span();
+        Span(unsigned int n);
+        Span(const Span &other);
+        Span &operator=(const Span &other);
+        ~Span();
 
         void addNumber(int number);
-        unsigned int shortestspan();
-        unsigned int longestspan();
+        unsigned int shortestSpan();
+        unsigned int longestSpan();
 
-        class spanFullException : public std::exception
+        class SpanFullException : public std::exception
         {
             public:
                 virtual const char *what() const throw();
@@ -50,12 +50,9 @@ class span
         void addNumber(T begin, T end)
         {
             if (numbers.size() + std::distance(begin, end) > max_size)
-                throw spanFullException();
+                throw SpanFullException();
             numbers.insert(numbers.end(), begin, end);
         }
-
-        
-
 };
 
 #endif

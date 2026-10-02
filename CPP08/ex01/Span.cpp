@@ -6,19 +6,19 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 21:25:34 by raalifa           #+#    #+#             */
-/*   Updated: 2026/10/02 13:39:06 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/10/02 15:47:42 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "span.hpp"
+#include "Span.hpp"
 
-span::span() : max_size(0) {}
+Span::Span() : max_size(0) {}
 
-span::span(unsigned int n) : max_size(n) {}
+Span::Span(unsigned int n) : max_size(n) {}
 
-span::span(const span &other) : max_size(other.max_size), numbers(other.numbers) {}
+Span::Span(const Span &other) : max_size(other.max_size), numbers(other.numbers) {}
 
-span &span::operator=(const span &other)
+Span &Span::operator=(const Span &other)
 {
     if (this != &other)
     {
@@ -28,16 +28,16 @@ span &span::operator=(const span &other)
     return *this;
 }
 
-span::~span() {}
+Span::~Span() {}
 
-void span::addNumber(int number)
+void Span::addNumber(int number)
 {
     if (numbers.size() >= max_size)
-        throw spanFullException();
+        throw SpanFullException();
     numbers.push_back(number);
 }
 
-unsigned int span::shortestspan()
+unsigned int Span::shortestSpan()
 {
     if(numbers.size() < 2)
         throw NotEnoughNumbersException();
@@ -53,7 +53,7 @@ unsigned int span::shortestspan()
     return static_cast<unsigned int>(min);
 }
 
-unsigned int span::longestspan()
+unsigned int Span::longestSpan()
 {
     if (numbers.size() < 2)
         throw NotEnoughNumbersException();
@@ -64,13 +64,13 @@ unsigned int span::longestspan()
 
 
 
-const char *span::spanFullException::what() const throw()
+const char *Span::SpanFullException::what() const throw()
 {
     return "Container is full";
 }
 
-const char *span::NotEnoughNumbersException::what() const throw()
+const char *Span::NotEnoughNumbersException::what() const throw()
 {
-    return "Not enough numbers to find a span";
+    return "Not enough numbers to find a Span";
 }
 

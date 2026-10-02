@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 10:41:52 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/30 10:41:52 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/10/02 15:54:19 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ class MutantStack : public std::stack<T>
         reverse_iterator rend();
         const_reverse_iterator rbegin() const;
         const_reverse_iterator rend() const;
-
 
 };
 

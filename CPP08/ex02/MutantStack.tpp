@@ -6,14 +6,12 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 12:13:45 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/30 12:13:45 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/10/02 15:51:03 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_TPP
 #define MUTANTSTACK_TPP
-
-#include "MutantStack.hpp"
 
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>() {}
@@ -24,10 +22,8 @@ MutantStack<T>::MutantStack(const MutantStack &other) : std::stack<T>(other) {}
 template <typename T>
 MutantStack<T> &MutantStack<T>::operator=(const MutantStack &other) 
 {
-    if (this != other)
-    {
+    if (this != &other)
         std::stack<T>::operator=(other);
-    }
     return (*this);
 }
 
@@ -81,6 +77,5 @@ typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rend() const
 {
     return (this->c.rend());
 }
-
 
 #endif
