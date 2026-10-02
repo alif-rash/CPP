@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.hpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 21:25:29 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/28 21:25:29 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/10/02 13:27:14 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-#define SPAN_HPP
+#ifndef span_HPP
+#define span_HPP
 
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <exception>
+#include <iterator>
 
-class Span
+class span
 {
     private:
         unsigned int max_size;
         std::vector<int> numbers;
     public:
-        Span();
-        Span(unsigned int n);
-        Span(const Span &other);
-        Span &operator=(const Span &other);
-        ~Span();
+        span();
+        span(unsigned int n);
+        span(const span &other);
+        span &operator=(const span &other);
+        ~span();
 
         void addNumber(int number);
-        unsigned int shortestSpan();
-        unsigned int longestSpan();
-        void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        unsigned int shortestspan();
+        unsigned int longestspan();
 
-        class SpanFullException : public std::exception
+        class spanFullException : public std::exception
         {
             public:
                 virtual const char *what() const throw();
@@ -51,7 +50,7 @@ class Span
         void addNumber(T begin, T end)
         {
             if (numbers.size() + std::distance(begin, end) > max_size)
-                throw SpanFullException();
+                throw spanFullException();
             numbers.insert(numbers.end(), begin, end);
         }
 

@@ -6,11 +6,11 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 08:09:57 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/23 08:09:57 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/10/02 13:16:25 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyFind.hpp"
+#include "easyfind.hpp"
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -24,10 +24,10 @@ int main()
     {
         vec.push_back(i);
     }
-    std::cout << "Searching for 4 in vector: " << std::endl;
+    std::cout << "Searching for 4 in vector: " ;
     try
     {
-        std::cout << "Element found at index:" << easyFind(vec, 4) << std::endl;
+        std::cout << *(easyfind(vec, 4)) << " found!" << std::endl;
     }
     catch(const NotFoundException &e)
     {
@@ -43,10 +43,10 @@ int main()
     }
     try
     {
-        std::cout << "Searching for 1 in deque: \n";
-        std::cout << "Element found at index:" << easyFind(deq, 1) << std::endl;
-        std::cout << "Searching for 15 in deque: \n";
-        std::cout << easyFind(deq, 15) << std::endl;
+        std::cout << "Searching for 1 in deque: " ;
+        std::cout << *(easyfind(deq, 1)) << " found!" << std::endl;
+        std::cout << "Searching for 15 in deque: ";
+        std::cout << *(easyfind(deq, 15)) << " found!" << std::endl;
     }
     catch(const NotFoundException &e)
     {
@@ -62,9 +62,9 @@ int main()
     try
     {
         std::cout << "Searching for 1 in list: ";
-        std::cout << "Element found at index:" << easyFind(lst, 1) << std::endl;
+        std::cout << *(easyfind(lst, 1)) << " found!" << std::endl;
         std::cout << "Searching for 100 in list: ";
-        std::cout << easyFind(lst, 100) << std::endl;
+        std::cout << *(easyfind(lst, 100)) << " found!" << std::endl;
     }
     catch(const NotFoundException &e)
     {

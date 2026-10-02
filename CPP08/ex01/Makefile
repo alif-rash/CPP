@@ -1,5 +1,5 @@
 NAME    = span
-SRC     = main.cpp Span.cpp
+SRC     = main.cpp span.cpp
 OBJ     = $(SRC:.cpp=.o)
 CXX     = c++
 CXXFLAGS= -Wall -Wextra -Werror -std=c++98

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/23 08:09:30 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/23 08:09:30 by raalifa          ###   ########.fr       */
+/*   Created: 2026/10/02 13:07:46 by raalifa           #+#    #+#             */
+/*   Updated: 2026/10/02 13:17:31 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ class NotFoundException : public std::exception
 };
 
 template <typename T>
-int easyFind(T &container, int value)
+typename T::iterator easyfind(T &container, int value)
 {
     typename T::iterator it;
     it = std::find(container.begin(), container.end(), value);
     if (it == container.end())
         throw NotFoundException();
-    return (*it);
+    return (it);
 }
 
 #endif

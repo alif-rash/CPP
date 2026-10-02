@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 21:25:34 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/28 21:25:34 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/10/02 13:39:06 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
 
-Span::Span() : max_size(0) {}
+span::span() : max_size(0) {}
 
-Span::Span(unsigned int n) : max_size(n) {}
+span::span(unsigned int n) : max_size(n) {}
 
-Span::Span(const Span &other) : max_size(other.max_size), numbers(other.numbers) {}
+span::span(const span &other) : max_size(other.max_size), numbers(other.numbers) {}
 
-Span &Span::operator=(const Span &other)
+span &span::operator=(const span &other)
 {
     if (this != &other)
     {
@@ -28,54 +28,48 @@ Span &Span::operator=(const Span &other)
     return *this;
 }
 
-Span::~Span() {}
+span::~span() {}
 
-void Span::addNumber(int number)
+void span::addNumber(int number)
 {
     if (numbers.size() >= max_size)
-        throw SpanFullException();
+        throw spanFullException();
     numbers.push_back(number);
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-    if (numbers.size() + std::distance(begin, end) > max_size)
-        throw SpanFullException();
-    numbers.insert(numbers.end(), begin, end); 
-}
-
-unsigned int Span::shortestSpan()
+unsigned int span::shortestspan()
 {
     if(numbers.size() < 2)
         throw NotEnoughNumbersException();
     std::vector<int> v = numbers;
     std::sort(v.begin(), v.end());
-     int min = v[1] - v[0];
-    for (size_t i = 1; i < v.size() - 1; i++)
+    long min =static_cast<long> (v[1]) - static_cast<long>(v[0]);
+    for (size_t i = 1; i < v.size(); i++)
     {
-        if (v[i] - v[i - 1] < min)
-            min = v[i] - v[i - 1];
+        long diff = static_cast<long>(v[i]) - static_cast<long>(v[i - 1]);
+        if (diff < min)
+            min = diff;
     }
-    return min;
+    return static_cast<unsigned int>(min);
 }
 
-unsigned int Span::longestSpan()
+unsigned int span::longestspan()
 {
     if (numbers.size() < 2)
         throw NotEnoughNumbersException();
     std::vector<int> v = numbers;
     std::sort(v.begin(), v.end());
-    return v.back() - v.front();
+    return static_cast<unsigned int> (static_cast<long>(v.back()) - static_cast<long>(v.front()));
 }
 
 
 
-const char *Span::SpanFullException::what() const throw()
+const char *span::spanFullException::what() const throw()
 {
     return "Container is full";
 }
 
-const char *Span::NotEnoughNumbersException::what() const throw()
+const char *span::NotEnoughNumbersException::what() const throw()
 {
     return "Not enough numbers to find a span";
 }
