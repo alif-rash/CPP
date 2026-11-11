@@ -6,7 +6,7 @@
 /*   By: raalifa <raalifa@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 15:05:05 by raalifa           #+#    #+#             */
-/*   Updated: 2026/07/30 15:05:05 by raalifa          ###   ########.fr       */
+/*   Updated: 2026/11/11 11:05:18 by raalifa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class BitcoinExchange
     private:
         std::map<std::string, double> exchangeRates;
         std::string trim(const std::string &str);
-        // double      getExchangeRate(const std::string &date);
-        // bool        isValidDate(const std::string &date);
-        // bool        isValidValue(const std::string &valueStr, double &value);
+        double      getExchangeRate(const std::string &date);
+        bool        isValidDate(const std::string &date);
+        bool        isValidValue(const std::string &valStr, double &value);
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &other);
